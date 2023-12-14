@@ -19,33 +19,15 @@ def hello():
             'nine': '9',
             'ten': '10'
         }
-        linematches = re.findall(r'(?:|one|two|three|four|five|six|seven|eight|nine|1|2|3|4|5|6|7|8|9)', line)
-        print(linematches)
+        linematches = re.findall(r'(?:one|two|three|four|five|six|seven|eight|nine|1|2|3|4|5|6|7|8|9)', line)
         for i in range(len(linematches)):
             for word, number in word_to_number.items():
                 linematches[i] = linematches[i].replace(word, number)
-        print(linematches)
-        tal += str(int(linematches[0]))
-        tal += str(int(linematches[-1]))
-        print(tal)
+        tal += linematches[0]
+        tal += linematches[-1]
         numbers.append(int(tal))
-        '''
-        for letter in line:
-            if letter.isdigit():
-                number += letter
-                break
-        for letter in line[::-1]:
-            if letter.isdigit():
-                number += letter
-                break
-        numbers.append(int(number))
-        '''
-    test = 0
     sum = 0
     for x in numbers:
-        print(x)
         sum+=x
-        test+=1
-    print(test)
     print(sum)
 hello()
